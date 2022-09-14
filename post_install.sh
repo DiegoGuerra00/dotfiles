@@ -14,10 +14,11 @@ case "$confirmChoice" in
             echo "Skipping system upgrade..."
         ;;
        esac
+       mkdir Downloads Pictures Files Games
        echo "Installing i3, polybar and other rice applications..."
-       sudo xbps-install -y i3-gaps polybar rofi ranger picom dunst allacrity neovim git curl wget 
+       sudo xbps-install -Ry i3-gaps polybar rofi ranger picom dunst allacrity neovim git curl wget 
        echo "Setting up lightdm"
-       sudo xbps-install -y lightdm lightdm-gtk3-greeter ConsoleKit2 dbus
+       sudo xbps-install -Ry lightdm lightdm-gtk3-greeter ConsoleKit2 dbus
        ln -s /etc/sv/bus /var/service/dbus
        ln -s /etc/sv/lightdm /var/service/lightdm
        echo "Installing LunarVim..."
