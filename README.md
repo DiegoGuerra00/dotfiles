@@ -1,5 +1,8 @@
 # My personal dotfiles
 
+Install with Stow with the commnad
+`stow --target=${HOME} */` 
+
 ## Specifications
 
 - WM: i3-gaps
