@@ -32,14 +32,16 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym %mod+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-# bindsym %mod+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #Adjust screen Brightness
-#bindsym XF86MonBrightnessUp exec brightnessctl -q set +5
-#bindsym XF86MonBrightnessDown exec brightnessctl -q set -5
+bindsym $mod+Shift+Left exec brightnessctl -q set +5
+bindsym $mod+Shift+Right exec brightnessctl -q set -5
+bindsym XF86MonBrightnessUp exec brightnessctl -q set +5
+bindsym XF86MonBrightnessDown exec brightnessctl -q set -5
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -65,34 +67,34 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-# bindsym $mod+h focus left
-# bindsym $mod+j focus down
-# bindsym $mod+k focus up
-# bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen toggle
@@ -169,10 +171,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym h resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -189,22 +191,22 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # i3 Gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner 8
 gaps outer 2
 
 #i3 Colors
 # class                 border  bground text    indicat child_border
-client.focused          #2AA889 #2AA889 #FFFFFF #F4E711 #2AA889
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50 #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E #222222
-client.urgent           #2F343A #A80000 #FFFFFF #900000 #900000
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
+# client.focused          #2AA889 #2AA889 #FFFFFF #F4E711 #2AA889
+# client.focused_inactive #333333 #5F676A #FFFFFF #484E50 #5F676A
+# client.unfocused        #333333 #222222 #888888 #292D2E #222222
+# client.urgent           #2F343A #A80000 #FFFFFF #900000 #900000
+# client.placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
 
-client.background       #3D4455
+# client.background       #3D4455
 
 # add wallpaper
-exec --no-startup-id feh --bg-fill ~/Documents/Wallpaper/DoomEternal.png
+exec --no-startup-id feh --bg-fill ~/Documents/Wallpaper/BocchiRock.png
 #exec --no-startup-id ~/.config/polybar/hack/scripts/pywal.sh ~/Documents/Wallper/red_blossons.png
 
 # Automatic layout
@@ -218,11 +220,12 @@ bindsym $mod+o exec rofi -show window
 bindsym $mod+b exec --no-startup-id ~/.config/polybar/scripts/rofi-bluetooth
 
 # i3lock key bind
-bindsym $mod+l exec i3lock -i ~/Documents/Wallpaper/labMembersUltrawide.png -t -f
+bindsym $mod+Alt+l exec i3lock -i ~/Documents/Wallpaper/labMembersUltrawide.png -t -f
 
 # Apps bindings
-bindsym $mod+c exec codium
+bindsym $mod+c exec exec alacritty -e lvim
 bindsym $mod+f exec firefox
+bindsym $mod+q exec qutebrowser
 bindsym $mod+p exec ~/.config/scripts/powermenu.sh
 bindsym $mod+s exec spotify
 bindsym $mod+Shift+u exec ~/.screenlayout/ultrawide.sh
@@ -230,10 +233,11 @@ bindsym $mod+Shift+n exec ~/.screenlayout/notebook.sh
 
 # maim Make Image key binds
 # OSX-like area selection screenshots
-# bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
 # Assign applications to workspaces and set mode
 for_window [class="firefox"] move to workspace $ws1
+for_window [class="qutebrowser"] move to workspace $ws1
 for_window [class="PulseAudio"] move to workspace $ws2
 for_window [class="Code"] move to workspace $ws4
 for_window [class="Codium"] move to workspace $ws4
